@@ -1,63 +1,169 @@
-<table border="1" style="font-family: 'Calibri', sans-serif;">
-  <thead>
-  	<tr>
-      <th colspan="6" style="text-align: center; background-color: powderblue;">INVENTORY SYSTEMS</th>
-    </tr>
+<!DOCTYPE html>
+<center>
+<form name = "Pokedex" action = "pokedex.php";>
+    National Dex: <input type = "number" name = "username" size = "30" min = "0"> <br>
+    <br> <input type="radio" id="html" name="generation" value="HTML">
+    <label for="html">Generation 1</label>
+    <input type="radio" id="01" name="generation" value="HTML">
+    <label for="html">Generation 2</label>
+    <input type="radio" id="02" name="generation" value="HTML">
+    <label for="html">Generation 3</label>
+    <input type="radio" id="03" name="generation" value="HTML">
+    <label for="html">Generation 4</label>
+    <input type="radio" id="04" name="generation" value="HTML">
+    <label for="html">Generation 5</label>
+	<input type="radio" id="05" name="generation" value="HTML">
+    <label for="html">Generation 6</label>
+	<input type="radio" id="06" name="generation" value="HTML">
+    <label for="html">Generation 7</label>
+	<input type="radio" id="07" name="generation" value="HTML">
+    <label for="html">Generation 8</label>
+	<input type="radio" id="08" name="generation" value="HTML">
+    <label for="html">Generation 9</label><br>
+	<br> Pokemon Name: <input type = "input" name = "pokemon" size = "20"><br>
+    <br> Image: <input type = "file" name = "image"> <br>
+    <br> Type 1: <input type = "select" name = "type1" size = "20">
+    Type 2: <input type = "data list" name = "type2" size = "20"><br>
+    <br> Evolves From: <input type = "text" name = "from" size = "20">
+    Evolves To: <input type = "text" name = "to" size = "20"><br>
+    <br> Nickname: <input type = "text" name = "nn" size = "20"><br>
+    <br> Birtday: <input type = "date" name = "nn" size = "20"><br>
+    <br> <button type = "submit"> Submit </button>
+</form>
+<center>
+<table border="1">
     <tr>
-      <th style="width: 60px; text-align: center; background-color: lightgray;">ID</th>
-      <th style="width: 210px; background-color: lightgray;">Name</th>
-      <th style="width: 72px; text-align: center; background-color: lightgray;">Quantity</th>
-      <th style="width: 65px; text-align: center; background-color: lightgray;">Supplier</th>
-      <th style="width: 80px; text-align: center; background-color: lightgray;">Date</th>
-      <th style="width: 80px; text-align: center; background-color: lightgray;">Image</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center;">10001</td>
-      <td> Boy Bawang Adobo (pc)</td>
-      <td style="text-align: center;">1000</td>
-      <td rowspan="8" style="text-align: center; background-color: yellow;"><b>KSK</b></td>
-      <td rowspan="2" style="text-align: center;" > 5/14/2019</td> 
-      <td rowspan="8" style="text-align: center;">Image Content</td> 
-    </tr>
-    <tr>
-      <td style="text-align: center;">10002</td>
-      <td>Boy Bawang Adobo (pack)</td>
-      <td style="text-align: center;">200</td>
-    </tr>
-    <tr>
-      <td style="text-align: center; background-color: lightgray;">10003</td>
-      <td style="background-color: lightgray;">Boy Bawang Garlic (pc)</td>
-      <td style="text-align: center; background-color: lightgray;">3000</td>
-      <td rowspan="2" style="text-align: center; background-color: lightgray;">5/15/2019</td> 
-    </tr>
-    <tr>
-      <td style="text-align: center; background-color: lightgray;">10004</td>
-      <td style="background-color: lightgray;">Boy Bawang Garlic (pack)</td>
-      <td style="color: red; text-align: center; background-color: lightgray;">150</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">10005</td>
-      <td>Boy Bawang Spicy (pc)</td>
-      <td style="text-align: center;">4000</td>
-      <td rowspan="2" style="text-align: center;">5/16/2019</td> 
-    </tr>
-    <tr>
-      <td style="text-align: center;">10006</td>
-      <td>Boy Bawang Spicy (pack)</td>
-      <td style="text-align: center;">240</td>
-    </tr>
-    <tr>
-      <td style="text-align: center; background-color: lightgray;">10007</td>
-      <td style="background-color: lightgray;">Boy Bawang BBQ (pc)</td>
-      <td style="text-align: center; background-color: lightgray;">3000</td>
-      <td rowspan="2" style="text-align: center; background-color: lightgray;">5/17/2019</td> 
-    </tr>
-    <tr>
-      <td style="text-align: center; background-color: lightgray;">10008</td>
-      <td style="background-color: lightgray;">Boy Bawang BBQ (pack)</td>
-      <td style="text-align: center; background-color: lightgray;">210</td>
-    </tr>
-  </tbody>
-</table>
+    <br>
+    <th>National Dex</th>
+      <th>Generation</th>
+      <th>Pokemon Name</th>
+      <th>Image</th>
+      <th>Type 1</th>
+      <th>Type 2</th>
+      <th>Evolves From</th>
+      <th>Evolves To</th>
+      <th>Nickname</th>
+      <th>Birthday</th>
+  </tr>
+    <tr align = "center">
+      <center>
+      <td>0001</td>
+      <td>Generation Z</td>
+      <td>Yeoj</td>
+      <td><img height="150" src="https://feu.instructure.com/users/160475/files/22996522/preview?instfs=true" width="200"></td>
+      <td>Morena</td> 
+      <td>Chinita</td>
+      <td>Nonchalant</td>
+      <td>OA</td>
+      <td>yeojieboy</td>
+      <td>September 14, 2004</td>
+  </tr>
+    <tr align = "center">
+      <center>
+      <td>0009</td>
+      <td>Generation 1</td>
+      <td>Blastoise</td>
+      <td><img height="100" src="https://archives.bulbagarden.net/media/upload/thumb/0/0a/0009Blastoise.png/70px-0009Blastoise.jpg" width="100"></td>
+      <td colspan="2" bgcolor= "Blue"> <font color ="white"> Water</td> 
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+   </tr>
+   <tr align = "center">
+      <center>
+      <td>0012</td>
+      <td>Generation 1</td>
+      <td>Butterfree</td>
+      <td>yeojieboy</td>
+      <td bgcolor= "#8A9A5B" text-color= "#FFFFFF" > Bug</td> 
+      <td>Flying</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+   </tr>
+   <tr align = "center">
+      <center>
+      <td>0016</td>
+      <td>Generation 1</td>
+      <td>Pidgey</td>
+      <td>yeojieboy</td>
+      <td colspan="2" bgcolor= "Red"> <font color ="white"> Fire</td> 
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+   </tr>
+   <tr align = "center">
+      <center>
+      <td>0017</td>
+      <td>Generation 1</td>
+      <td>Pidgeotte</td>
+      <td>yeojieboy</td>
+      <td colspan="2" bgcolor= "Red"> <font color ="white"> Fire</td> 
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+   </tr>
+   <tr align = "center">
+      <center>
+      <td>0020</td>
+      <td>Generation 1</td>
+      <td>Raticate</td>
+      <td>yeojieboy</td>
+      <td colspan="2" bgcolor= "Red" font-color= "White" > Fire</td> 
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+   </tr>
+   <tr align = "center">
+      <center>
+      <td>0022</td>
+      <td>Generation 1</td>
+      <td>Fearow</td>
+      <td>yeojieboy</td>
+      <td colspan="2" bgcolor= "Red" font-color= "White" > Fire</td> 
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+   </tr>
+   <tr align = "center">
+      <center>
+      <td>0025</td>
+      <td>Generation 1</td>
+      <td>Pikachu</td>
+      <td>yeojieboy</td>
+      <td colspan="2" bgcolor= "Red" font-color= "White" > Fire</td> 
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+   </tr>
+   <tr align = "center">
+      <center>
+      <td>0027</td>
+      <td>Generation 1</td>
+      <td>Sandshrew</td>
+      <td>yeojieboy</td>
+      <td colspan="2" bgcolor= "Red" font-color= "White" > Fire</td> 
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+   </tr>
+   <tr align = "center">
+      <center>
+      <td>0028</td>
+      <td>Generation 1</td>
+      <td>Sandslash</td>
+      <td>yeojieboy</td>
+      <td colspan="2" bgcolor= "Red" font-color= "White" > Fire</td> 
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+      <td>Image Content</td>
+   </tr>
