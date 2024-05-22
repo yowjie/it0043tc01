@@ -31,7 +31,7 @@ body {
     }
     
     .card:hover {
-    box-shadow: 0 30px 50px 0 rgba(0, 0, 0, 5);
+    transform translateY(-15);
     }
 
     .card img {
