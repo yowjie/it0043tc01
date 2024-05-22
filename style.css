@@ -32,7 +32,7 @@ body {
     }
     
     .card:hover {
-    transform translateY(-15px);
+    transform translateY(-20px);
     }
 
     .card img {
