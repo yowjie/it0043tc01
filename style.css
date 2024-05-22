@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+body {
+    font-family: "Josefin Sans";
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    background-image: url(pokedirect-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    }
+
+    .card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+    padding: 40px;
+    }
+    
+    .card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 2);
+    }
+    
+    .card img {
+    width: 100%;
+    height: auto;
+    }
+    
+    .image-container{
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    }
+
+    .image-container::before{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(POKEBALL2.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    }
+
+    .image-container img {
+    position: absolute;
+    width: 70%;
+    height: auto;
+    z-index: 1;
+    top: 15%;
+    left: 15%;
+    }
+
+    .card h2 {
+    background-color: #efefef;
+    margin: 0;
+    padding: 15px;
+    font-size: 24px;
+    }
+    
+    #bulbasaur-card h2 {
+    background-color: #4CAF50;
+    font-size: xx-large;
+    color: white;
+    text-shadow: 4px 4px 6px #000000;
+    }
+
+    .bg-bulba {
+    background-color: #4CAF50;   
+    }
+    
+    #charmander-card h2 {
+    background-color: #F08030;
+    font-size: xx-large;
+    color: white;
+    text-shadow: 4px 4px 6px #000000;
+    }
+
+    .bg-char {
+    background-color: #F08030;
+    }
+    
+    #squirtle-card h2 {
+    background-color: #0047AB;
+    font-size: xx-large;
+    color: white;
+    text-shadow: 4px 4px 6px #000000;
+    }
+
+    .bg-squir {
+    background-color: #0047AB;
+    }
+
+    #pikachu-card h2 {
+    background-color: #FFE338;
+    font-size: xx-large;
+    color: white;
+    text-shadow: 4px 4px 6px #000000;
+    }
+
+    .bg-pika {
+    background-color: #FFE338;
+    }
+
+    #snorlax-card h2 {
+    background-color: #3C5B6F;
+    font-size: xx-large;
+    color: white;
+    text-shadow: 4px 4px 6px #000000;
+    }
+
+    .bg-snor {
+    background-color: #3C5B6F;
+    }
+
+    #gengar-card h2 {
+    background-color:#8E3E63;
+    font-size: xx-large;
+    color: white;
+    text-shadow: 4px 4px 6px #000000;
+    }
+
+    .bg-gen {
+    background-color: #8E3E63;
+    }
+
+    .card p {
+    padding: 0 15px;
+    font-size: 16px;
+    }
+    
+    .type-grass {
+    background-color: #78C850;
+    color: white;
+    padding: 8px 45px;
+    border-radius: 10px;
+    margin: 0 2px;
+    }
+    
+    .type-poison {
+    background-color: #A040A0;
+    color: white;
+    padding: 8px 45px;
+    border-radius: 10px;
+    margin: 0 2px;
+    }
+    
+    .type-fire {
+    background-color: red;
+    color: white;
+    padding: 8px 85px;
+    border-radius: 10px;
+    margin: 0 2px;
+    }
+    
+    .type-water {
+    background-color: blue;
+    color: white;
+    padding: 8px 85px;
+    border-radius: 10px;
+    margin: 0 2px;
+    }
+
+    .type-electric {
+    background-color: #FED000;
+    font-size: medium;
+    color: white;
+    padding: 8px 85px;
+    border-radius: 10px;
+    margin: 0 2px;
+    }
+    
+    .type-bug {
+    background-color:#8A9A5B;
+    color: white;
+    padding: 8px 45px;
+    border-radius: 10px;
+    margin: 0 2px;
+    }
+
+    .type-normal {
+    background-color: grey;
+    color: white;
+    padding: 8px 85px;
+    border-radius: 10px;
+    margin: 0 2px;
+    }
+
+    .type-ghost {
+    background-color:#E49BFF;
+    color: white;
+    padding: 8px 45px;
+    border-radius: 10px;
+    margin: 0 2px;
+    }
+
+    .bulba-pic {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(3%, 5%);
+    width: 50%;
+    }
+
+    .char-pic {
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    transform: translate(-8%, -17%);
+    width: 45%;
+    }
+
+    .squir-pic {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(7%, -7%);
+    width: 50%;
+    }
+
+    .pika-pic {
+    position: absolute;
+    top: 30%;
+    left: 55%;
+    transform: translate(7%, 5%);
+    width: 60%;
+    }
+
+    .snor-pic {
+    position: absolute;
+    top: 30%;
+    left: 55%;
+    transform: translate(-1%, 5%);
+    width: 50%;
+    }
+
+    .gen-pic {
+    position: absolute;
+    top: 40%;
+    left: 55%;
+    transform: translate(1%, 5%);
+    width: 50%;
+    }
+
+    .button-container {
+    display: flex;
+    justify-content: center;
+    grid-gap: 15px;
+    padding: 10px 0;
+    }
+    
+    button {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 45%;
+    font-family: "Josefin Sans";
+    font-size: medium;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    }
+
+    button:hover {
+    box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 1);
+    }
+    
+    .add-btn {
+    background-color: #007BFF;
+    color: white;
+    width: 150px;
+    }
+    
+    .release-btn {
+    background-color: #FF4136;
+    color: white;
+    width: 180px;
+    }
