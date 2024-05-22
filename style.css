@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+body {
+    font-family: "Josefin Sans";
+    background-image: url(ARENA.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    }
+
+    .card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 40px;
+    }
+    
+    .card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    }
+    
+    .card img {
+    width: 100%;
+    height: auto;
+    }
+    
+    .image-container{
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    }
+
+    .image-container::before{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(POKEBALL.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    }
+
+    .image-container img{
+    position: absolute;
+    width: 70%;
+    height: auto;
+    z-index: 1;
+    }
+
+    .card h2 {
+    background-color: #efefef;
+    margin: 0;
+    padding: 15px;
+    font-size: 24px;
+    }
+    
+    #bulbasaur-card h2 {
+    background-color: #4CAF50;
+    color: white;
+    }
+    
+    #charmander-card h2 {
+    background-color: #F08030;
+    color: white;
+    }
+    
+    #squirtle-card h2 {
+    background-color: #1E90FF;
+    color: white;
+    }
+    
+    .card p {
+    padding: 0 15px;
+    font-size: 16px;
+    }
+    
+    .type-grass {
+    background-color: #78C850;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 5px;
+    margin: 0 2px;
+    }
+    
+    .type-poison {
+    background-color: #A040A0;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 5px;
+    margin: 0 2px;
+    }
+    
+    .type-fire {
+    background-color: red;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 5px;
+    margin: 0 2px;
+    }
+    
+    .type-water {
+    background-color: blue;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 5px;
+    margin: 0 2px;
+    }
+    
+    button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 75%;
+    margin: 4px ;
+    }
+    
+    .add-btn {
+    background-color: #007BFF;
+    color: white;
+    }
+    
+    .release-btn {
+    background-color: #FF4136;
+    color: white;
+    }
