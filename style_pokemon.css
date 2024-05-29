@@ -34,6 +34,7 @@ body {
     align-items: center;
     margin: 10px;
     padding: 10px;
+    position: relative;
 }
 
 .grid-item img {
@@ -52,11 +53,18 @@ body {
     display: none;
 }
 
-.grid-item .pokeball {
-    width: 35px;  
-    height: 35px; 
-    margin-left: 10px;
-}
+.bg-psyduck { background-color: #FFEB3B; }
+.bg-pikachu { background-color: #FFEB3B; }
+.bg-pidgey { background-color: #90A4AE; }
+.bg-jigglypuff { background-color: #F8BBD0; }
+.bg-weedle { background-color: #CDDC39; }
+.bg-zubat { background-color: #3F51B5; }
+.bg-meowth { background-color: #FFC107; }
+.bg-bullbasaur { background-color: #4CAF50; }
+.bg-charmander { background-color: #FF5722; }
+.bg-snorlax { background-color: #607D8B; }
+.bg-mew { background-color: #E1BEE7; }
+.bg-eevee { background-color: #795548; }
 
 @media (min-width: 769px) {
     .grid-item .pokeball {
@@ -104,11 +112,30 @@ body {
     }
 }
 
-@media (max-width: 480px) {
+    @media (max-width: 520px) {
     .grid-item {
-        flex-basis: 45%;
-        position: relative; 
-        transition: background-image 0.3s ease;
+        width: 90%;
+        height: auto;
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center;
+        text-align: center;
+    }
+      
+    .grid-item img {
+        max-width: 40%;
+        display: block;
+        margin: 0 auto;
+    }
+      
+    .grid-item span {
+        display: block;
+        margin-top: 10px;
+    }
+      
+    .grid-item .pokeball  {
+        display: none;
     }
 
     .grid-item:hover {
@@ -117,47 +144,8 @@ body {
         background-position: center;
     }
 
-    .grid-item .pokeball {
-        width: 35px;  
-        height: px; 
-    }
-}
-
-.bg-psyduck { background-color: #FFEB3B; }
-.bg-pikachu { background-color: #FFEB3B; }
-.bg-pidgey { background-color: #90A4AE; }
-.bg-jigglypuff { background-color: #F8BBD0; }
-.bg-weedle { background-color: #CDDC39; }
-.bg-zubat { background-color: #3F51B5; }
-.bg-meowth { background-color: #FFC107; }
-.bg-bullbasaur { background-color: #4CAF50; }
-.bg-charmander { background-color: #FF5722; }
-.bg-snorlax { background-color: #607D8B; }
-.bg-mew { background-color: #E1BEE7; }
-.bg-eevee { background-color: #795548; }
-
-@media (max-width: 370px) {
-    .grid-item {
-        flex-direction: column;
-        padding: 20px;
-    }
-
-    .grid-item img {
-        max-width: 100px;
-        max-height: 100px;
-    }
-
-    .grid-item span {
-        display: block;
-        margin: 10px 0 0 0;
-        text-align: center;
-    }
-
-    .grid-item .pokeball {
-        display: none;
-    }
-
     .grid-item .type {
+        align-items: center;
         display: block;
         margin-top: 5px;
         font-size: medium;
@@ -165,13 +153,12 @@ body {
         color: white;
         padding: 5px 50px;
         border-radius: 10px;
-        margin: 1.5 2px;
+        margin: 3 2px;
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 1);
         width: 70px; 
         text-align: center; 
     }
 }
-
 .water-type { background-color: #007BFF; }
 .electric-type { background-color: #FFBF00; }
 .fire-type { background-color: red; }
