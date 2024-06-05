@@ -8,16 +8,22 @@
     color: black;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     margin: 0;
+    padding: 0;
 }
 
 .sonic-container {
-    width: 87vw;
+    width: 100vw;
+    height: 100vh;
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -31,8 +37,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    align-items: center; 
-    text-align: center; 
+    align-items: center;
+    text-align: center;
 }
 
 .details {
