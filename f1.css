@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Josefin Sans";
+    }
+    
+    .navbar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(225,13,0);
+    padding: 1rem;
+    }
+    
+    .logo-image {
+    width: 175px;
+    height: auto;
+    margin-right: auto;
+    }
+
+    .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    }
+    
+    .nav-links li {
+    margin-left: 1rem;
+    }
+    
+    .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, text-decoration 0.3 ease;
+    }
+    
+    .nav-links a:hover {
+    color: black;
+    text-decoration: dashed;
+    }
+
+    .hero-section {
+    position: relative;
+    text-align: center;
+    color: white;
+    }
+    
+    .hero-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    }
+    
+    .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    text-align: justify;
+    font-size: larger;
+    }
+    
+    main {
+    padding: 1rem;
+    }
+    
+    footer {
+    background: rgb(225,13,0);
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    }
+    
+    @media (max-width: 768px) {
+    .nav-links {
+    flex-direction: column;
+    }
+    
+    .nav-links li {
+    margin: 0.5rem 0;
+    }
+    }
+    
+    @media (max-width: 480px) {
+    .hero-text {
+    font-size: 1rem;
+    padding: 1rem;
+    }
+    
+    .drivers-grid {
+    grid-template-columns: 1fr;
+    }
+    }
