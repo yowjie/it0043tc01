@@ -126,7 +126,6 @@ body {
 .secondary-pick {
     flex: 1;
     min-width: 300px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -134,15 +133,16 @@ body {
     height: 350px; 
 }
 
-.secondary-pick:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
 .secondary-pick img {
     width: 100%;
     height: calc(100% - 70px); 
     border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.secondary-pick:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .secondary-pick-text {
@@ -235,11 +235,11 @@ main {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .news-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
