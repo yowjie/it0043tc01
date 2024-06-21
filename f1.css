@@ -171,6 +171,34 @@ body {
     margin-top: 0.5rem;
 }
 
+.see-more-button {
+    align-content: center;
+    background-color: #e10d00;
+    font-family: "Josefin Sans", sans-serif;
+    color: #fff;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    height: 50px;
+    width: 350px;
+    text-align: center;
+    margin: 0 auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-position 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.see-more-button:hover {
+    transform: scale(1.03);
+}
+
+.see-more-button:focus {
+    outline: none;
+}
+
 main {
     padding: 1rem;
 }
@@ -179,6 +207,12 @@ main {
     margin: 2rem 0;
     font-size: 2rem;
     color: #e10d00;
+    transition: text-decoration 0.3s ease;
+}
+
+.welcome-text:hover {
+    color: black;
+    text-decoration: dashed;
 }
 
 .upcoming-race-info {
