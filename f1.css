@@ -226,6 +226,39 @@ main {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+.upcoming-race-img-container {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    height: 700px;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    overflow: hidden; 
+    transition: transform 1.0s ease, box-shadow 1.0s ease;
+}
+
+.upcoming-race-img-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('spainnn.gif') center center / cover no-repeat;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.upcoming-race-img-container:hover::after {
+    opacity: 5;
+}
+
+.upcoming-race-img-container:hover {
+    transform: scale(1.00);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+
 .content-section {
     margin-top: 2rem;
     align-content: center;
