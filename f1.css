@@ -415,6 +415,11 @@ footer ul li:hover {
         max-width: 100%;
     }
 
+    .upcoming-race-img-container {
+        height: auto;
+        max-width: 100%;
+    }
+
     footer ul {
         flex-direction: column;
         gap: 10px;
@@ -448,6 +453,11 @@ footer ul li:hover {
     }
 
     .upcoming-race-img {
+        height: auto;
+        max-width: 100%;
+    }
+
+    .upcoming-race-img-container {
         height: auto;
         max-width: 100%;
     }
