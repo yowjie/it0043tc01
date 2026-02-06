@@ -20,8 +20,8 @@
     }
 
     body.card-mode {
-      font-family: 'Crimson Text', serif;
       background: #111;
+      font-family: 'Crimson Text', serif;
       align-items: flex-start;
       padding-top: 40px;
     }
@@ -30,23 +30,42 @@
       font-family: 'Dancing Script', cursive;
     }
 
+    .letter {
+      transform: translateY(0);
+      transition: transform 0.8s ease;
+    }
+
+    .flap {
+      transition: transform 0.8s ease;
+      transform-origin: top;
+    }
+
     .open .letter {
-      transform: translateY(-220px);
+      transform: translateY(-240px);
       z-index: 50;
     }
 
     .open .flap {
       transform: rotateX(180deg);
     }
+
+    /* Flowers on corners */
+    .lily {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      pointer-events: none;
+      z-index: 60;
+    }
   </style>
 </head>
 
 <body>
-  <div class="text-left max-w-xl">
+  <div class="max-w-xl">
     <h1 class="text-6xl mb-2">404</h1>
     <h2 class="text-xl mb-4">Not Found</h2>
     <p class="text-gray-400 mb-6">
-      The page you’re looking for doesn’t exist.
+      The page doesn’t exist.
       <br>But maybe something else does.
     </p>
     <button onclick="showValentine()" class="border px-6 py-2">
@@ -59,78 +78,67 @@
       document.body.classList.add("card-mode");
 
       document.body.innerHTML = `
-      <div id="card" class="relative w-full max-w-[480px] aspect-[16/11] mx-auto">
+        <div id="card"
+          onclick="toggleOpen()"
+          class="relative w-full max-w-[480px] aspect-[16/11] mx-auto cursor-pointer select-none">
 
-        <!-- LETTER -->
-        <div class="letter absolute inset-x-0 mx-auto w-[92%] h-[95%] bg-[#fcfaf7]
-          border border-zinc-200 shadow-2xl p-6 transition-all duration-700">
-          
-          <div class="h-full border border-red-100 p-5 flex flex-col justify-between">
-            <div>
-              <h2 class="handwritten text-3xl text-zinc-800 mb-3">
-                Dear Elletot,
-              </h2>
+          <!-- Decorative Lilies -->
+          <img src="https://i.ibb.co/rtSPQdr/lily.png" class="lily top-0 left-0">
+          <img src="https://i.ibb.co/rtSPQdr/lily.png" class="lily top-0 right-0">
+          <img src="https://i.ibb.co/rtSPQdr/lily.png" class="lily bottom-0 left-0">
+          <img src="https://i.ibb.co/rtSPQdr/lily.png" class="lily bottom-0 right-0">
 
-              <p class="text-sm italic text-zinc-600 leading-relaxed">
-                Happy Valentine’s Elletot 🤓  
-                <br><br>
-                This was supposed to be a normal page.
-                Somehow, you turned it into something worth opening.
-                <br><br>
-                Even errors feel cute when they lead to you.
-              </p>
-            </div>
+          <!-- LETTER -->
+          <div class="letter absolute inset-x-0 mx-auto w-[92%] h-[95%] bg-[#fcfaf7]
+            border border-zinc-200 shadow-2xl p-6 z-10 overflow-hidden">
+            <div class="h-full border border-red-100 p-5 flex flex-col justify-between">
 
-            <p class="text-center text-xl font-bold text-red-900 italic uppercase tracking-widest">
-              Be my Valentine?
-            </p>
+              <div>
+                <h2 class="handwritten text-3xl text-zinc-800 mb-3">
+                  Dear Elle,
+                </h2>
 
-            <div class="flex justify-between items-end border-t pt-4">
-              <span class="text-[9px] uppercase tracking-widest italic text-red-800/60">
-                My heart found you anyway.
-              </span>
+                <img src="https://i.ibb.co/0V8fHwc/placeholder.jpg"
+                     alt="Elle's picture"
+                     class="w-32 h-32 rounded-lg mb-4 mx-auto shadow-lg object-cover">
 
-              <div class="text-right">
-                <p class="text-[10px] uppercase tracking-widest text-zinc-400">
-                  Always,
-                </p>
-                <p class="handwritten text-2xl text-red-900">
-                  Your Admirer
+                <p class="text-sm italic text-zinc-600 leading-relaxed">
+                  She’s full of so many things.<br><br>
+                  That’s the perfect way to describe Elle. She’s smart, she’s funny, and one of my favorite things about her is how nerdy she can be. Those parts of her always stand out to me.<br><br>
+                  But more than that, it’s how she makes me feel when we talk. Beyond the butterflies, she effortlessly puts me at ease. Being with her feels natural and comforting, like I can really be myself. And that feeling… it’s hard to put into words.<br><br>
+                  Happy Heart's Day, Elle! 💖
                 </p>
               </div>
+
+              <p class="text-center text-xl font-bold text-red-900 italic uppercase tracking-widest">
+                Be my Valentine?
+              </p>
+
             </div>
+          </div>
+
+          <!-- ENVELOPE -->
+          <div class="absolute inset-0 bg-white border shadow-xl overflow-hidden z-20 pointer-events-none">
+            <div class="absolute inset-0"
+              style="background: linear-gradient(35deg, #fff 50%, #f9f9f9 50.1%);">
+            </div>
+
+            <div class="absolute bottom-6 w-full text-center">
+              <p class="text-red-900 font-bold tracking-[0.4em] text-xs">
+                YOU AND I
+              </p>
+            </div>
+          </div>
+
+          <!-- FLAP -->
+          <div class="flap absolute top-0 left-0 w-full h-1/2 bg-zinc-100 z-30 shadow-sm pointer-events-none"
+            style="clip-path: polygon(0 0, 50% 100%, 100% 0);">
           </div>
         </div>
 
-        <!-- ENVELOPE -->
-        <div class="absolute inset-0 bg-white border shadow-xl overflow-hidden z-10">
-          <div class="absolute inset-0"
-            style="background: linear-gradient(35deg, #fff 50%, #f9f9f9 50.1%);">
-          </div>
-
-          <!-- HEART SEAL (CLICK ME) -->
-          <button onclick="toggleOpen()" 
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40">
-            <div class="w-14 h-14 bg-red-800 rounded-full shadow-lg border flex items-center justify-center">
-              <span class="text-red-300 text-lg">❤</span>
-            </div>
-          </button>
-
-          <p class="absolute bottom-6 w-full text-center text-red-900 font-bold tracking-[0.4em] text-xs">
-            YOU AND I
-          </p>
-        </div>
-
-        <!-- FLAP -->
-        <div class="flap absolute top-0 left-0 w-full h-1/2 bg-zinc-100 origin-top
-          transition-transform duration-700 shadow-sm"
-          style="clip-path: polygon(0 0, 50% 100%, 100% 0);">
-        </div>
-      </div>
-
-      <p class="mt-6 text-center text-zinc-600 text-[10px] uppercase tracking-[0.4em] animate-pulse">
-        Click the heart
-      </p>
+        <p class="mt-6 text-center text-zinc-600 text-[10px] uppercase tracking-[0.4em] animate-pulse">
+          Click the letter
+        </p>
       `;
     }
 
