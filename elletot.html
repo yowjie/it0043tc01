@@ -7,99 +7,19 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { height: 100vh; background: #0f0f0f; color: #e5e7eb; display: flex; align-items: center; justify-content: center; font-family: Consolas, Menlo, monospace; }
-
-body.card-mode { font-family: 'Crimson Text', serif; background: #111; color: #fff; justify-content: flex-start; padding-top: 50px; }
-
+body { margin:0; height:100vh; background:#0f0f0f; display:flex; align-items:center; justify-content:center; font-family:Consolas, Menlo, monospace; }
+body.card-mode { font-family: 'Crimson Text', serif; background:#111; color:#fff; justify-content:flex-start; padding-top:50px; }
 .handwritten { font-family: 'Dancing Script', cursive; }
-
-.letter-card { perspective: 1500px; cursor: pointer; position: relative; }
-.letter-inner { transition: transform 0.8s ease-in-out; transform-style: preserve-3d; position: relative; }
+.envelope { perspective:1500px; position:relative; max-width:500px; width:100%; cursor:pointer; }
+.envelope-top { width:100%; height:120px; background:#b22222; clip-path:polygon(0 0, 50% 100%, 100% 0); position:absolute; top:0; left:0; z-index:20; transition: transform 0.8s ease-in-out; }
+.letter-inner { transform-style: preserve-3d; transition: transform 0.8s ease-in-out; position:relative; }
 .letter-inner.open { transform: rotateX(180deg); }
-
-.letter-front, .letter-back {
-  backface-visibility: hidden;
-  border-radius: 8px;
-  width: 100%;
-  min-height: 550px;
-  position: absolute;
-  top: 0; left: 0;
-}
-
-.letter-front {
-  background: #fcfaf7;
-  padding: 2rem;
-  border: 1px solid #ddd;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  overflow: hidden;
-}
-
-.letter-front p { line-height: 1.7; color: #333; font-size: 14px; }
-
-.letter-back {
-  background: #fff;
-  transform: rotateX(180deg);
-  border: 1px solid #ddd;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.envelope {
-  width: 100%;
-  max-width: 500px;
-  position: relative;
-  perspective: 1500px;
-}
-
-.envelope-top {
-  width: 100%;
-  height: 120px;
-  background: #b22222;
-  clip-path: polygon(0 0, 50% 100%, 100% 0);
-  position: absolute;
-  top: 0; left: 0;
-  z-index: 20;
-  transition: transform 0.8s ease-in-out;
-}
-
-.letter-card.open .envelope-top {
-  transform: translateY(-180px) rotateX(180deg);
-}
-
-.lilies {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  background-size: cover;
-}
-
-.heart {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  background-size: cover;
-}
-
-/* Pulse bottom text */
-.open-instruction {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #9ca3af;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.4em;
-  animation: pulse 1.2s infinite;
-}
-@keyframes pulse {
-  0%,100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
+.letter-front, .letter-back { backface-visibility:hidden; border-radius:8px; width:100%; min-height:550px; position:absolute; top:0; left:0; box-shadow:0 8px 20px rgba(0,0,0,0.3); }
+.letter-front { background:#fcfaf7; padding:2rem; border:1px solid #ddd; overflow:hidden; color:#333; font-size:14px; line-height:1.7; }
+.letter-back { background:#fff; transform:rotateX(180deg); border:1px solid #ddd; display:flex; justify-content:center; align-items:center; flex-direction:column; }
+.lilies, .heart { position:absolute; background-size:cover; }
+.open-instruction { position:absolute; bottom:10px; left:50%; transform:translateX(-50%); color:#9ca3af; font-size:10px; text-transform:uppercase; letter-spacing:0.4em; animation:pulse 1.2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 </style>
 </head>
 <body>
@@ -118,56 +38,44 @@ body.card-mode { font-family: 'Crimson Text', serif; background: #111; color: #f
 
 <script>
 function showValentine() {
-    document.body.classList.add('card-mode');
+  document.body.classList.add('card-mode');
+  document.getElementById('error').remove();
 
-    // remove old content
-    document.getElementById('error').remove();
+  const envelope = document.createElement('div');
+  envelope.className = 'envelope';
 
-    // create envelope container
-    const container = document.createElement('div');
-    container.className = 'envelope w-full max-w-[500px] mx-auto relative letter-card';
-
-    container.innerHTML = `
-        <!-- Envelope top flap -->
-        <div class="envelope-top"></div>
-
-        <!-- Letter inside -->
-        <div class="letter-inner">
-            <div class="letter-front">
-                <p>
-                    She’s full of so many things.<br><br>
-                    That’s the perfect way to describe Elle. She’s smart, she’s funny, and one of my favorite things about her is how nerdy she can be. Those parts of her always stand out to me.<br><br>
-                    But more than that, it’s how she makes me feel when we talk. Beyond the butterflies, she effortlessly puts me at ease. Being with her feels natural and comforting, like I can really be myself. And that feeling… it’s hard to put into words.<br><br>
-                    Happy Heart's Day, Elle!
-                </p>
-
-                <!-- Lilies decoration -->
-                <div class="lilies" style="top:10px; left:10px; background-image:url('https://i.imgur.com/L5sXx8p.png');"></div>
-                <div class="lilies" style="bottom:20px; right:20px; background-image:url('https://i.imgur.com/L5sXx8p.png');"></div>
-
-                <!-- Hearts decoration -->
-                <div class="heart" style="top:40px; right:50px; background-image:url('https://i.imgur.com/0Q4S48G.png');"></div>
-                <div class="heart" style="bottom:50px; left:60px; background-image:url('https://i.imgur.com/0Q4S48G.png');"></div>
-            </div>
-
-            <div class="letter-back">
-                <div class="w-14 h-14 bg-red-800 rounded-full shadow-lg border border-red-900 flex items-center justify-center mb-4">
-                    <span class="text-red-300 text-lg">❤</span>
-                </div>
-                <p class="text-red-900 font-bold uppercase tracking-[0.4em] text-[11px]">YOU AND I</p>
-            </div>
+  envelope.innerHTML = `
+    <div class="envelope-top"></div>
+    <div class="letter-inner">
+      <div class="letter-front">
+        <p>
+          She’s full of so many things.<br><br>
+          That’s the perfect way to describe Elle. She’s smart, she’s funny, and one of my favorite things about her is how nerdy she can be. Those parts of her always stand out to me.<br><br>
+          But more than that, it’s how she makes me feel when we talk. Beyond the butterflies, she effortlessly puts me at ease. Being with her feels natural and comforting, like I can really be myself. And that feeling… it’s hard to put into words.<br><br>
+          Happy Heart's Day, Elle!
+        </p>
+        <div class="lilies" style="top:10px; left:10px; width:24px; height:24px; background-image:url('https://i.imgur.com/L5sXx8p.png');"></div>
+        <div class="lilies" style="bottom:20px; right:20px; width:24px; height:24px; background-image:url('https://i.imgur.com/L5sXx8p.png');"></div>
+        <div class="heart" style="top:40px; right:50px; width:18px; height:18px; background-image:url('https://i.imgur.com/0Q4S48G.png');"></div>
+        <div class="heart" style="bottom:50px; left:60px; width:18px; height:18px; background-image:url('https://i.imgur.com/0Q4S48G.png');"></div>
+      </div>
+      <div class="letter-back">
+        <div class="w-14 h-14 bg-red-800 rounded-full shadow-lg border border-red-900 flex items-center justify-center mb-4">
+          <span class="text-red-300 text-lg">❤</span>
         </div>
+        <p class="text-red-900 font-bold uppercase tracking-[0.4em] text-[11px]">YOU AND I</p>
+      </div>
+    </div>
+    <div class="open-instruction">Click to Open</div>
+  `;
 
-        <div class="open-instruction">Click to Open</div>
-    `;
+  document.body.appendChild(envelope);
 
-    document.body.appendChild(container);
-
-    // toggle letter open on click
-    container.addEventListener('click', () => {
-        container.querySelector('.letter-inner').classList.toggle('open');
-        container.classList.toggle('open');
-    });
+  const inner = envelope.querySelector('.letter-inner');
+  envelope.addEventListener('click', () => {
+    inner.classList.toggle('open');
+    envelope.querySelector('.envelope-top').style.transform = inner.classList.contains('open') ? 'translateY(-180px) rotateX(180deg)' : 'none';
+  });
 }
 </script>
 
