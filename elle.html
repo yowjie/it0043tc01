@@ -1,124 +1,93 @@
 <script>
 function showValentine() {
 
-  document.body.classList.add('card-mode');
-  document.body.innerHTML = `
-  <div class="relative w-full max-w-[480px] aspect-[16/11] perspective mx-auto select-none">
-
-    <!-- CARD -->
-    <div id="card"
-         class="absolute inset-x-0 mx-auto w-[92%] h-[95%] bg-[#fcfaf7]
-                shadow-2xl border border-zinc-200 p-8
-                transition-all duration-700 ease-in-out z-10
-                cursor-pointer">
-
-      <div class="h-full border border-red-100 p-5 flex flex-col justify-between relative">
-
-        <div class="flex justify-between items-start">
-          <div class="space-y-2">
-            <h2 class="handwritten text-3xl text-zinc-800">
-              Dear Elletot,
-            </h2>
-            <p class="text-sm italic text-zinc-600 max-w-[220px] leading-relaxed">
-              “Some things don’t need to be loud to be felt.”
-            </p>
-          </div>
-
-          <div class="w-14 h-20 border border-dotted border-zinc-300 bg-zinc-50
-                      flex flex-col items-center justify-center p-1">
-            <div class="text-[8px] uppercase tracking-widest text-zinc-400">Post</div>
-            <div class="w-full h-full bg-center bg-cover"
-              style="background-image:url('https://i.pinimg.com/736x/22/72/1b/22721b77401267d3f4a5606d8e717d7b.jpg')">
+    document.body.classList.add('card-mode');
+    document.body.innerHTML = `
+    <div class="relative w-full max-w-[480px] aspect-[16/11] group perspective mx-auto">
+    
+    <div class="absolute inset-x-0 mx-auto w-[92%] h-[95%] bg-[#fcfaf7] shadow-2xl border border-zinc-200 p-8 
+                transition-all duration-700 ease-in-out z-0
+                group-hover:-translate-y-52 group-hover:z-50">
+        
+        <div class="h-full border border-red-100 p-5 flex flex-col justify-between relative">
+            
+            <div class="flex justify-between items-start">
+                <div class="space-y-2">
+                    <h2 class="handwritten text-3xl text-zinc-800">
+                        Dear Elletot,
+                    </h2>
+                    <p class="text-sm italic text-zinc-600 max-w-[220px] leading-relaxed">
+                        “Some things appear unexpectedly, yet feel strangely right.”
+                    </p>
+                </div>
+                <div class="w-14 h-20 border border-dotted border-zinc-300 bg-zinc-50 flex flex-col items-center justify-center p-1">
+                     <div class="text-[8px] uppercase tracking-widest text-zinc-400">Post</div>
+                     <div class="w-full h-full bg-center bg-cover"
+                          style="background-image: url('https://i.pinimg.com/736x/22/72/1b/22721b77401267d3f4a5606d8e717d7b.jpg')">
+                     </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <!-- TYPING MESSAGE -->
-        <div class="text-center px-2 min-h-[90px] flex items-center justify-center">
-          <p id="typedText"
-             class="handwritten text-3xl text-red-900 leading-snug"></p>
-        </div>
+            <!-- MAIN MESSAGE -->
+            <div class="text-center px-2">
+                <p class="handwritten text-3xl text-red-900 leading-snug">
+                    Happy Valentine’s,<br>
+                    elletot 🤓
+                </p>
+            </div>
 
-        <div class="flex justify-between items-end border-t border-red-50/50 pt-4">
-          <div class="text-[9px] text-red-800/60 uppercase tracking-widest italic max-w-[140px]">
-            This letter waited for you.
-          </div>
-          <div class="text-right">
-            <p class="text-[10px] text-zinc-400 uppercase tracking-widest">
-              Always,
-            </p>
-            <p class="handwritten text-2xl text-red-900">
-              Someone who cares
-            </p>
-          </div>
-        </div>
+            <div class="flex justify-between items-end border-t border-red-50/50 pt-4">
+                <div class="text-[9px] text-red-800/60 uppercase tracking-widest italic leading-tight max-w-[140px]">
+                    This little letter found its way to you.
+                </div>
+                <div class="text-right">
+                    <p class="text-[10px] text-zinc-400 uppercase tracking-widest">
+                        Sincerely,
+                    </p>
+                    <p class="handwritten text-2xl text-red-900">
+                        Someone who cares
+                    </p>
+                </div>
+            </div>
 
-      </div>
+        </div>
     </div>
 
     <!-- ENVELOPE -->
-    <div id="envelope"
-         class="absolute inset-0 bg-white border border-zinc-200 shadow-xl z-20
-                transition-all duration-700 ease-in-out">
-      <div class="absolute inset-0"
-           style="background:linear-gradient(35deg,#fff 50%,#f9f9f9 50.1%)"></div>
-
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div class="w-14 h-14 bg-red-800 rounded-full shadow-lg
-                    border border-red-900 flex items-center justify-center">
-          <span class="text-red-300 text-lg">❤</span>
+    <div class="absolute inset-0 bg-white border border-zinc-200 shadow-xl z-20 overflow-hidden">
+        <div class="absolute inset-0 z-20"
+             style="background: linear-gradient(35deg, #ffffff 50%, #f9f9f9 50.1%);">
         </div>
-      </div>
+        
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40
+                    transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12">
+            <div class="w-14 h-14 bg-red-800 rounded-full shadow-lg border border-red-900
+                        flex items-center justify-center">
+                <span class="text-red-300 text-lg">❤</span>
+            </div>
+        </div>
 
-      <div class="absolute bottom-8 w-full text-center">
-        <p class="text-red-900 font-bold uppercase tracking-[0.4em] text-[11px]">
-          YOU AND I
-        </p>
-      </div>
+        <div class="absolute bottom-8 w-full text-center z-40">
+            <p class="text-red-900 font-bold uppercase tracking-[0.4em] text-[11px]">
+                YOU AND I
+            </p>
+        </div>
     </div>
 
     <!-- FLAP -->
-    <div id="flap"
-         class="absolute top-0 left-0 w-full h-1/2 bg-zinc-100 origin-top
-                transition-transform duration-700 ease-in-out z-30 shadow-sm"
-         style="clip-path:polygon(0 0,50% 100%,100% 0)">
+    <div class="absolute top-0 left-0 w-full h-1/2 bg-zinc-100 origin-top
+                transition-transform duration-500 ease-in-out 
+                group-hover:[transform:rotateX(180deg)] z-30 shadow-sm"
+         style="clip-path: polygon(0 0, 50% 100%, 100% 0);">
     </div>
 
-  </div>
+</div>
 
-  <div class="absolute bottom-2 left-1/2 -translate-x-1/2
-              text-zinc-600 text-[10px] uppercase tracking-[0.4em]
-              animate-pulse text-center">
-    Click to Open
-  </div>
-  `;
-
-  // OPEN CARD ON CLICK
-  let opened = false;
-  document.getElementById('card').addEventListener('click', () => {
-    if (opened) return;
-    opened = true;
-
-    document.getElementById('flap')
-      .style.transform = 'rotateX(180deg)';
-
-    document.getElementById('card')
-      .style.transform = 'translateY(-210px)';
-
-    startTyping();
-  });
-}
-
-// TYPING EFFECT
-function startTyping() {
-  const text = "Happy Valentine’s,\nelletot 🤓";
-  const target = document.getElementById('typedText');
-  let i = 0;
-
-  const interval = setInterval(() => {
-    target.innerHTML += text[i] === "\n" ? "<br>" : text[i];
-    i++;
-    if (i >= text.length) clearInterval(interval);
-  }, 70);
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2
+            text-zinc-600 text-[10px] uppercase tracking-[0.4em]
+            animate-pulse text-center">
+    Hover to Open
+</div>
+`;
 }
 </script>
