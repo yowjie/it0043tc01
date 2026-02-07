@@ -34,14 +34,27 @@ body.card-mode {
 /* Envelope container perspective */
 .perspective { perspective: 1500px; }
 
-/* simulate open state */
+/* simulate open/close state */
+.letter {
+  transition: transform 0.8s ease, z-index 0s linear 0.8s;
+}
+
 .opened .letter {
   transform: translateY(-13rem);
   z-index: 50;
+  transition: transform 0.8s ease, z-index 0s linear 0s;
+}
+
+.heart {
+  transition: transform 0.5s ease;
 }
 
 .opened .heart {
   transform: scale(1.1) rotate(12deg);
+}
+
+.flap {
+  transition: transform 0.8s ease;
 }
 
 .opened .flap {
@@ -117,7 +130,7 @@ function showValentine() {
 
       <!-- LETTER -->
       <div class="letter absolute inset-x-0 mx-auto w-[92%] h-[100%] bg-[#fcfaf7] shadow-2xl border border-zinc-200 p-8 
-                  transition-all duration-700 ease-in-out z-0">
+                  z-0">
 
         <div class="h-full border border-red-100 p-5 relative overflow-hidden">
 
@@ -143,6 +156,10 @@ function showValentine() {
             <!-- tape -->
             <div class="absolute -top-2 left-6 w-10 h-3 bg-amber-100 opacity-80 rotate-[-4deg]"></div>
 
+            <!-- lilies -->
+            <img src="https://pngimg.com/uploads/lily/lily_PNG14.png"
+                 class="absolute -top-6 -left-6 w-12 opacity-40 pointer-events-none">
+
             <img src="elle.jpeg"
                  alt="Elle"
                  class="w-24 h-32 object-cover rounded-md bg-white p-1 border border-zinc-300 shadow-md rotate-[-3deg]">
@@ -157,7 +174,7 @@ function showValentine() {
         <!-- HEART SEAL -->
         <div onclick="toggleOpen(event)"
              class="heart absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40
-                    transition-transform duration-500 cursor-pointer">
+                    cursor-pointer">
           <div class="w-14 h-14 bg-red-800 rounded-full shadow-lg border border-red-900 flex items-center justify-center">
             <span class="text-red-300 text-lg">❤</span>
           </div>
@@ -165,7 +182,7 @@ function showValentine() {
       </div>
 
       <!-- FLAP -->
-      <div class="flap absolute top-0 left-0 w-full h-1/2 bg-zinc-100 origin-top transition-transform duration-500 ease-in-out
+      <div class="flap absolute top-0 left-0 w-full h-1/2 bg-zinc-100 origin-top
                   z-30 shadow-sm"
            style="clip-path: polygon(0 0, 50% 100%, 100% 0);">
       </div>
@@ -184,11 +201,12 @@ function showValentine() {
 
 function toggleOpen(e) {
   e.stopPropagation();
-  document.getElementById('envelope').classList.toggle('opened');
+  const envelope = document.getElementById('envelope');
+
+  // smooth open/close by toggling class
+  envelope.classList.toggle('opened');
 }
 </script>
 
 </body>
 </html>
-
-
