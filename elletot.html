@@ -37,13 +37,13 @@ body.card-mode {
 /* Letter smooth open/close */
 .letter {
   transform: translateY(0);
-  transition: transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55), z-index 0s linear 1s;
+  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
+  opacity: 1;
 }
 
 .opened .letter {
   transform: translateY(-13rem);
-  z-index: 50;
-  transition: transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55), z-index 0s linear 0s;
+  opacity: 1;
 }
 
 /* Heart smooth scaling */
@@ -57,7 +57,7 @@ body.card-mode {
 
 /* Flap smooth rotation */
 .flap {
-  transition: transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .opened .flap {
@@ -67,8 +67,8 @@ body.card-mode {
 /* Photo reveal smooth delay */
 .photo {
   opacity: 0;
-  transform: translateY(12px) rotate(-2deg);
-  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+  transform: translateY(10px) rotate(-2deg);
+  transition: opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s;
 }
 
 .opened .photo {
@@ -122,7 +122,8 @@ body.card-mode {
 function showValentine() {
   const body = document.body;
 
-  // Fade out effect
+  // Smooth fade out
+  body.style.transition = "opacity 0.6s ease";
   body.style.opacity = 0;
 
   setTimeout(() => {
@@ -133,15 +134,14 @@ function showValentine() {
          class="relative w-full max-w-[480px] aspect-[16/15] perspective mx-auto">
 
       <!-- LETTER -->
-      <div class="letter absolute inset-x-0 mx-auto w-[92%] h-[100%] bg-[#fcfaf7] shadow-2xl border border-zinc-200 p-8 
-                  z-0">
+      <div class="letter absolute inset-x-0 mx-auto w-[92%] h-[100%] bg-[#fcfaf7] shadow-2xl border border-zinc-200 p-8 z-0">
 
         <div class="h-full border border-red-100 p-5 relative overflow-hidden">
 
           <!-- TEXT + STAMP -->
           <div class="flex justify-between items-start gap-4">
             <p class="text-sm italic text-zinc-600 max-w-[240px] leading-relaxed">
-              She’s full of so many things.<br><br>
+              She’s full of many things.<br><br>
               That’s the perfect way to describe Elle. She’s smart, she’s funny, and one of my favorite things about her is how nerdy she can be. Those parts of her always stand out to me.<br><br>
               But more than that, it’s how she makes me feel when we talk. Beyond the butterflies, she effortlessly puts me at ease. Being with her feels natural and comforting, like I can really be myself. And that feeling… it’s hard to put into words.<br><br>
               Happy heart's day, Elle &lt;3
@@ -160,10 +160,6 @@ function showValentine() {
             <!-- tape -->
             <div class="absolute -top-2 left-6 w-10 h-3 bg-amber-100 opacity-80 rotate-[-4deg]"></div>
 
-            <!-- lilies -->
-            <img src="https://pngimg.com/uploads/lily/lily_PNG14.png"
-                 class="absolute -top-6 -left-6 w-12 opacity-40 pointer-events-none">
-
             <img src="elle.jpeg"
                  alt="Elle"
                  class="w-24 h-32 object-cover rounded-md bg-white p-1 border border-zinc-300 shadow-md rotate-[-3deg]">
@@ -177,8 +173,7 @@ function showValentine() {
 
         <!-- HEART SEAL -->
         <div onclick="toggleOpen(event)"
-             class="heart absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40
-                    cursor-pointer">
+             class="heart absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer">
           <div class="w-14 h-14 bg-red-800 rounded-full shadow-lg border border-red-900 flex items-center justify-center">
             <span class="text-red-300 text-lg">❤</span>
           </div>
@@ -186,8 +181,7 @@ function showValentine() {
       </div>
 
       <!-- FLAP -->
-      <div class="flap absolute top-0 left-0 w-full h-1/2 bg-zinc-100 origin-top
-                  z-30 shadow-sm"
+      <div class="flap absolute top-0 left-0 w-full h-1/2 bg-zinc-100 origin-top z-30 shadow-sm"
            style="clip-path: polygon(0 0, 50% 100%, 100% 0);">
       </div>
 
@@ -198,8 +192,10 @@ function showValentine() {
     </div>
     `;
 
-    // Fade in effect
-    setTimeout(() => body.style.opacity = 1, 50);
+    // Smooth fade in
+    setTimeout(() => {
+      body.style.opacity = 1;
+    }, 50);
   }, 500);
 }
 
