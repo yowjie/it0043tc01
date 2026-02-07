@@ -34,41 +34,25 @@ body.card-mode {
 /* Envelope container perspective */
 .perspective { perspective: 1500px; }
 
-/* Letter smooth open/close */
-.letter {
-  transform: translateY(0);
-  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
-  opacity: 1;
-}
-
+/* simulate open state */
 .opened .letter {
   transform: translateY(-13rem);
-  opacity: 1;
-}
-
-/* Heart smooth scaling */
-.heart {
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 50;
 }
 
 .opened .heart {
   transform: scale(1.1) rotate(12deg);
 }
 
-/* Flap smooth rotation */
-.flap {
-  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .opened .flap {
   transform: rotateX(180deg);
 }
 
-/* Photo reveal smooth delay */
+/* photo reveal inside letter */
 .photo {
   opacity: 0;
-  transform: translateY(10px) rotate(-2deg);
-  transition: opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s;
+  transform: translateY(8px) rotate(-2deg);
+  transition: opacity .8s ease, transform .8s ease;
 }
 
 .opened .photo {
@@ -76,7 +60,6 @@ body.card-mode {
   transform: translateY(0) rotate(-2deg);
 }
 
-/* Error page styling */
 .error {
   width: 100%;
   max-width: 760px;
@@ -122,8 +105,7 @@ body.card-mode {
 function showValentine() {
   const body = document.body;
 
-  // Smooth fade out
-  body.style.transition = "opacity 0.6s ease";
+  // Fade out effect
   body.style.opacity = 0;
 
   setTimeout(() => {
@@ -134,7 +116,8 @@ function showValentine() {
          class="relative w-full max-w-[480px] aspect-[16/15] perspective mx-auto">
 
       <!-- LETTER -->
-      <div class="letter absolute inset-x-0 mx-auto w-[92%] h-[100%] bg-[#fcfaf7] shadow-2xl border border-zinc-200 p-8 z-0">
+      <div class="letter absolute inset-x-0 mx-auto w-[92%] h-[100%] bg-[#fcfaf7] shadow-2xl border border-zinc-200 p-8 
+                  transition-all duration-700 ease-in-out z-0">
 
         <div class="h-full border border-red-100 p-5 relative overflow-hidden">
 
@@ -173,7 +156,8 @@ function showValentine() {
 
         <!-- HEART SEAL -->
         <div onclick="toggleOpen(event)"
-             class="heart absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer">
+             class="heart absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40
+                    transition-transform duration-500 cursor-pointer">
           <div class="w-14 h-14 bg-red-800 rounded-full shadow-lg border border-red-900 flex items-center justify-center">
             <span class="text-red-300 text-lg">❤</span>
           </div>
@@ -181,7 +165,8 @@ function showValentine() {
       </div>
 
       <!-- FLAP -->
-      <div class="flap absolute top-0 left-0 w-full h-1/2 bg-zinc-100 origin-top z-30 shadow-sm"
+      <div class="flap absolute top-0 left-0 w-full h-1/2 bg-zinc-100 origin-top transition-transform duration-500 ease-in-out
+                  z-30 shadow-sm"
            style="clip-path: polygon(0 0, 50% 100%, 100% 0);">
       </div>
 
@@ -192,19 +177,14 @@ function showValentine() {
     </div>
     `;
 
-    // Smooth fade in
-    setTimeout(() => {
-      body.style.opacity = 1;
-    }, 50);
+    // Fade in effect
+    setTimeout(() => body.style.opacity = 1, 50);
   }, 500);
 }
 
 function toggleOpen(e) {
   e.stopPropagation();
-  const envelope = document.getElementById('envelope');
-
-  // Smooth open/close toggle
-  envelope.classList.toggle('opened');
+  document.getElementById('envelope').classList.toggle('opened');
 }
 </script>
 
