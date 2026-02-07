@@ -34,38 +34,41 @@ body.card-mode {
 /* Envelope container perspective */
 .perspective { perspective: 1500px; }
 
-/* simulate open/close state */
+/* Letter smooth open/close */
 .letter {
-  transition: transform 0.8s ease, z-index 0s linear 0.8s;
+  transform: translateY(0);
+  transition: transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55), z-index 0s linear 1s;
 }
 
 .opened .letter {
   transform: translateY(-13rem);
   z-index: 50;
-  transition: transform 0.8s ease, z-index 0s linear 0s;
+  transition: transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55), z-index 0s linear 0s;
 }
 
+/* Heart smooth scaling */
 .heart {
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .opened .heart {
   transform: scale(1.1) rotate(12deg);
 }
 
+/* Flap smooth rotation */
 .flap {
-  transition: transform 0.8s ease;
+  transition: transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .opened .flap {
   transform: rotateX(180deg);
 }
 
-/* photo reveal inside letter */
+/* Photo reveal smooth delay */
 .photo {
   opacity: 0;
-  transform: translateY(8px) rotate(-2deg);
-  transition: opacity .8s ease, transform .8s ease;
+  transform: translateY(12px) rotate(-2deg);
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
 }
 
 .opened .photo {
@@ -73,6 +76,7 @@ body.card-mode {
   transform: translateY(0) rotate(-2deg);
 }
 
+/* Error page styling */
 .error {
   width: 100%;
   max-width: 760px;
@@ -137,7 +141,7 @@ function showValentine() {
           <!-- TEXT + STAMP -->
           <div class="flex justify-between items-start gap-4">
             <p class="text-sm italic text-zinc-600 max-w-[240px] leading-relaxed">
-              She’s full of many things.<br><br>
+              She’s full of so many things.<br><br>
               That’s the perfect way to describe Elle. She’s smart, she’s funny, and one of my favorite things about her is how nerdy she can be. Those parts of her always stand out to me.<br><br>
               But more than that, it’s how she makes me feel when we talk. Beyond the butterflies, she effortlessly puts me at ease. Being with her feels natural and comforting, like I can really be myself. And that feeling… it’s hard to put into words.<br><br>
               Happy heart's day, Elle &lt;3
@@ -155,6 +159,10 @@ function showValentine() {
           <div class="absolute bottom-1 right-2 photo">
             <!-- tape -->
             <div class="absolute -top-2 left-6 w-10 h-3 bg-amber-100 opacity-80 rotate-[-4deg]"></div>
+
+            <!-- lilies -->
+            <img src="https://pngimg.com/uploads/lily/lily_PNG14.png"
+                 class="absolute -top-6 -left-6 w-12 opacity-40 pointer-events-none">
 
             <img src="elle.jpeg"
                  alt="Elle"
@@ -199,12 +207,10 @@ function toggleOpen(e) {
   e.stopPropagation();
   const envelope = document.getElementById('envelope');
 
-  // smooth open/close by toggling class
+  // Smooth open/close toggle
   envelope.classList.toggle('opened');
 }
 </script>
 
 </body>
 </html>
-
-
