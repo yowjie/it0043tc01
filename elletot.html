@@ -58,7 +58,7 @@ body.card-mode {
 
 .perspective { perspective: 1500px; }
 
-/* CLICKED HEART = SIMULATED HOVER */
+/* click-heart = simulate hover */
 .opened .group-hover\:-translate-y-52 { transform: translateY(-13rem); }
 .opened .group-hover\:z-50 { z-index: 50; }
 .opened .group-hover\:scale-110 { transform: scale(1.1) rotate(12deg); }
@@ -91,13 +91,14 @@ function showValentine() {
   <div id="envelope"
        class="relative w-full max-w-[480px] aspect-[16/15] group perspective mx-auto">
 
+    <!-- LETTER -->
     <div class="absolute inset-x-0 mx-auto w-[92%] h-[100%] bg-[#fcfaf7] shadow-2xl border border-zinc-200 p-8 
                 transition-all duration-700 ease-in-out z-0
                 group-hover:-translate-y-52 group-hover:z-50">
 
       <div class="h-full border border-red-100 p-5 flex flex-col justify-between relative">
 
-        <div class="flex justify-between items-start">
+        <div class="flex justify-between items-start gap-4">
           <div class="space-y-2">
             <p class="text-sm italic text-zinc-600 max-w-[220px] leading-relaxed">
               She’s full of so many things.<br><br>
@@ -105,8 +106,16 @@ function showValentine() {
               But more than that, it’s how she makes me feel when we talk. Beyond the butterflies, she effortlessly puts me at ease. Being with her feels natural and comforting, like I can really be myself. And that feeling… it’s hard to put into words.<br><br>
               Happy heart's day, Elle &lt;3
             </p>
+
+            <!-- ADDED PHOTO -->
+            <div class="mt-4 flex justify-center">
+              <img src="elle.jpeg"
+                   alt="Elle"
+                   class="w-32 h-40 object-cover rounded-md shadow-md border border-zinc-300">
+            </div>
           </div>
 
+          <!-- STAMP IMAGE (unchanged) -->
           <div class="w-14 h-20 border border-dotted border-zinc-300 bg-zinc-50 flex flex-col items-center justify-center p-1">
             <div class="text-[8px] uppercase tracking-widest text-zinc-400">Post</div>
             <div class="w-full h-full bg-center bg-cover"
@@ -118,11 +127,12 @@ function showValentine() {
       </div>
     </div>
 
+    <!-- ENVELOPE -->
     <div class="absolute inset-0 bg-white border border-zinc-200 shadow-xl z-100 overflow-hidden">
       <div class="absolute inset-0 z-20"
            style="background: linear-gradient(35deg, #ffffff 50%, #f9f9f9 50.1%);"></div>
 
-      <!-- HEART SEAL -->
+      <!-- HEART SEAL (CLICK THIS) -->
       <div onclick="toggleOpen(event)"
            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40
                   transition-transform duration-500 cursor-pointer
@@ -133,6 +143,7 @@ function showValentine() {
       </div>
     </div>
 
+    <!-- FLAP -->
     <div class="absolute top-0 left-0 w-full h-1/2 bg-zinc-100 origin-top transition-transform duration-500 ease-in-out 
                 group-hover:[transform:rotateX(180deg)] z-30 shadow-sm"
          style="clip-path: polygon(0 0, 50% 100%, 100% 0);">
