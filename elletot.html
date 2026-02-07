@@ -20,6 +20,7 @@ body {
   align-items: center;
   justify-content: center;
   font-family: Consolas, Menlo, monospace;
+  transition: opacity 0.8s ease;
 }
 
 body.card-mode {
@@ -84,7 +85,6 @@ body.card-mode {
   padding: 10px 22px;
   cursor: pointer;
 }
-
 </style>
 </head>
 
@@ -103,78 +103,87 @@ body.card-mode {
 
 <script>
 function showValentine() {
+  const body = document.body;
 
-  document.body.classList.add('card-mode');
+  // Fade out effect
+  body.style.opacity = 0;
 
-  document.body.innerHTML = `
-  <div id="envelope"
-       class="relative w-full max-w-[480px] aspect-[16/15] perspective mx-auto">
+  setTimeout(() => {
+    body.classList.add('card-mode');
 
-    <!-- LETTER -->
-    <div class="letter absolute inset-x-0 mx-auto w-[92%] h-[100%] bg-[#fcfaf7] shadow-2xl border border-zinc-200 p-8 
-                transition-all duration-700 ease-in-out z-0">
+    body.innerHTML = `
+    <div id="envelope"
+         class="relative w-full max-w-[480px] aspect-[16/15] perspective mx-auto">
 
-      <div class="h-full border border-red-100 p-5 relative overflow-hidden">
+      <!-- LETTER -->
+      <div class="letter absolute inset-x-0 mx-auto w-[92%] h-[100%] bg-[#fcfaf7] shadow-2xl border border-zinc-200 p-8 
+                  transition-all duration-700 ease-in-out z-0">
 
-        <!-- TEXT + STAMP -->
-        <div class="flex justify-between items-start gap-4">
-          <p class="text-sm italic text-zinc-600 max-w-[240px] leading-relaxed">
-            She’s full of so many things.<br><br>
-            That’s the perfect way to describe Elle. She’s smart, she’s funny, and one of my favorite things about her is how nerdy she can be. Those parts of her always stand out to me.<br><br>
-            But more than that, it’s how she makes me feel when we talk. Beyond the butterflies, she effortlessly puts me at ease. Being with her feels natural and comforting, like I can really be myself. And that feeling… it’s hard to put into words.<br><br>
-            Happy heart's day, Elle &lt;3
-          </p>
+        <div class="h-full border border-red-100 p-5 relative overflow-hidden">
 
-          <div class="w-14 h-20 border border-dotted border-zinc-300 bg-zinc-50 flex flex-col items-center justify-center p-1 shrink-0">
-            <div class="text-[8px] uppercase tracking-widest text-zinc-400">Post</div>
-            <div class="w-full h-full bg-center bg-cover"
-                 style="background-image:url('https://i.pinimg.com/736x/22/72/1b/22721b77401267d3f4a5606d8e717d7b.jpg')">
+          <!-- TEXT + STAMP -->
+          <div class="flex justify-between items-start gap-4">
+            <p class="text-sm italic text-zinc-600 max-w-[240px] leading-relaxed">
+              She’s full of so many things.<br><br>
+              That’s the perfect way to describe Elle. She’s smart, she’s funny, and one of my favorite things about her is how nerdy she can be. Those parts of her always stand out to me.<br><br>
+              But more than that, it’s how she makes me feel when we talk. Beyond the butterflies, she effortlessly puts me at ease. Being with her feels natural and comforting, like I can really be myself. And that feeling… it’s hard to put into words.<br><br>
+              Happy heart's day, Elle &lt;3
+            </p>
+
+            <div class="w-14 h-20 border border-dotted border-zinc-300 bg-zinc-50 flex flex-col items-center justify-center p-1 shrink-0">
+              <div class="text-[8px] uppercase tracking-widest text-zinc-400">Post</div>
+              <div class="w-full h-full bg-center bg-cover"
+                   style="background-image:url('https://i.pinimg.com/736x/22/72/1b/22721b77401267d3f4a5606d8e717d7b.jpg')">
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- PHOTO PINNED INSIDE LETTER -->
-        <div class="absolute bottom-1 right-2 photo">
-          <!-- tape -->
-          <div class="absolute -top-2 left-6 w-10 h-3 bg-amber-100 opacity-80 rotate-[-4deg]"></div>
+          <!-- PHOTO PINNED INSIDE LETTER -->
+          <div class="absolute bottom-1 right-2 photo">
+            <!-- tape -->
+            <div class="absolute -top-2 left-6 w-10 h-3 bg-amber-100 opacity-80 rotate-[-4deg]"></div>
 
-          <!-- lilies -->
-          <img src="https://pngimg.com/uploads/lily/lily_PNG14.png"
-               class="absolute -top-6 -left-6 w-12 opacity-40 pointer-events-none">
+            <!-- lilies -->
+            <img src="https://pngimg.com/uploads/lily/lily_PNG14.png"
+                 class="absolute -top-6 -left-6 w-12 opacity-40 pointer-events-none">
 
-          <img src="elle.jpeg"
-               alt="Elle"
-               class="w-24 h-32 object-cover rounded-md bg-white p-1 border border-zinc-300 shadow-md rotate-[-3deg]">
-        </div>
+            <img src="elle.jpeg"
+                 alt="Elle"
+                 class="w-24 h-32 object-cover rounded-md bg-white p-1 border border-zinc-300 shadow-md rotate-[-3deg]">
+          </div>
 
-      </div>
-    </div>
-
-    <!-- ENVELOPE -->
-    <div class="absolute inset-0 bg-white border border-zinc-200 shadow-xl overflow-hidden">
-
-      <!-- HEART SEAL -->
-      <div onclick="toggleOpen(event)"
-           class="heart absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40
-                  transition-transform duration-500 cursor-pointer">
-        <div class="w-14 h-14 bg-red-800 rounded-full shadow-lg border border-red-900 flex items-center justify-center">
-          <span class="text-red-300 text-lg">❤</span>
         </div>
       </div>
+
+      <!-- ENVELOPE -->
+      <div class="absolute inset-0 bg-white border border-zinc-200 shadow-xl overflow-hidden">
+
+        <!-- HEART SEAL -->
+        <div onclick="toggleOpen(event)"
+             class="heart absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40
+                    transition-transform duration-500 cursor-pointer">
+          <div class="w-14 h-14 bg-red-800 rounded-full shadow-lg border border-red-900 flex items-center justify-center">
+            <span class="text-red-300 text-lg">❤</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLAP -->
+      <div class="flap absolute top-0 left-0 w-full h-1/2 bg-zinc-100 origin-top transition-transform duration-500 ease-in-out
+                  z-30 shadow-sm"
+           style="clip-path: polygon(0 0, 50% 100%, 100% 0);">
+      </div>
+
     </div>
 
-    <!-- FLAP -->
-    <div class="flap absolute top-0 left-0 w-full h-1/2 bg-zinc-100 origin-top transition-transform duration-500 ease-in-out
-                z-30 shadow-sm"
-         style="clip-path: polygon(0 0, 50% 100%, 100% 0);">
+    <div class="absolute bottom-2 left-1/2 -translate-x-1/2 text-zinc-600 text-[10px] uppercase tracking-[0.4em] animate-pulse text-center">
+      Click the Heart
     </div>
+    `;
 
-  </div>
-
-  <div class="absolute bottom-2 left-1/2 -translate-x-1/2 text-zinc-600 text-[10px] uppercase tracking-[0.4em] animate-pulse text-center">
-    Click the Heart
-  </div>
-  `;
+    // Fade in effect
+    setTimeout(() => body.style.opacity = 1, 50);
+  }, 500);
 }
 
 function toggleOpen(e) {
@@ -185,4 +194,3 @@ function toggleOpen(e) {
 
 </body>
 </html>
-
