@@ -4,28 +4,72 @@
 <meta charset="UTF-8">
 <title>404 Not Found</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.tailwindcss.com"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { height: 100vh; background: #0f0f0f; color: #e5e7eb; display: flex; align-items: center; justify-content: center; font-family: Consolas, Menlo, monospace; }
 
+body {
+  height: 100vh;
+  background: #0f0f0f;
+  color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Consolas, Menlo, monospace;
+}
 
-.error { width: 100%; max-width: 760px; padding: 48px; }
+.error {
+  width: 100%;
+  max-width: 760px;
+  padding: 48px;
+}
+
 .error h1 { font-size: 64px; margin-bottom: 6px; }
 .error h2 { font-size: 20px; font-weight: normal; margin-bottom: 20px; }
 .error p { font-size: 14px; color: #9ca3af; line-height: 1.7; margin-bottom: 28px; }
-.error ul { font-size: 13px; color: #6b7280; margin-bottom: 36px; padding-left: 18px; }
-.error button { font-family: inherit; background: #1a1a1a; border: 1px solid #333; color: #e5e7eb; padding: 10px 22px; cursor: pointer; }
 
+.error ul {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 36px;
+  padding-left: 18px;
+}
 
-body.card-mode { font-family: 'Crimson Text', serif; background: #111; color: #fff; justify-content: flex-start; padding-top: 50px; }
-.handwritten { font-family: 'Dancing Script', cursive; }
+.error button {
+  font-family: inherit;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: #e5e7eb;
+  padding: 10px 22px;
+  cursor: pointer;
+}
+
+body.card-mode {
+  font-family: 'Crimson Text', serif;
+  background: #111;
+  color: #fff;
+  justify-content: flex-start;
+  padding-top: 50px;
+}
+
 .perspective { perspective: 1500px; }
+
+/* CLICKED HEART = SIMULATED HOVER */
+.opened .group-hover\:-translate-y-52 { transform: translateY(-13rem); }
+.opened .group-hover\:z-50 { z-index: 50; }
+.opened .group-hover\:scale-110 { transform: scale(1.1) rotate(12deg); }
+.opened .group-hover\:rotate-12 { transform: scale(1.1) rotate(12deg); }
+.opened .group-hover\:\[transform\:rotateX\(180deg\)\] {
+  transform: rotateX(180deg);
+}
 </style>
 </head>
-<body>
 
+<body>
 
 <div class="error" id="error">
   <h1>404</h1>
@@ -34,7 +78,6 @@ body.card-mode { font-family: 'Crimson Text', serif; background: #111; color: #f
   <ul>
     <li>The URL may be incorrect</li>
     <li>The resource may no longer exist</li>
-    <li>Please try again later</li>
   </ul>
   <button onclick="showValentine()">Refresh</button>
 </div>
@@ -42,76 +85,72 @@ body.card-mode { font-family: 'Crimson Text', serif; background: #111; color: #f
 <script>
 function showValentine() {
 
-    document.body.classList.add('card-mode');
-    document.body.innerHTML = `
-    <style>
-      /* Simulate hover when .opened is present */
-      .opened .group-hover\\:-translate-y-52 { transform: translateY(-13rem); }
-      .opened .group-hover\\:z-50 { z-index: 50; }
-      .opened .group-hover\\:scale-110 { transform: scale(1.1) rotate(12deg); }
-      .opened .group-hover\\:rotate-12 { transform: scale(1.1) rotate(12deg); }
-      .opened .group-hover\\:\\[transform\\:rotateX\\(180deg\\)\\] {
-        transform: rotateX(180deg);
-      }
-    </style>
+  document.body.classList.add('card-mode');
 
-    <div class="relative w-full max-w-[480px] aspect-[16/15] group perspective mx-auto cursor-pointer"
-         onclick="this.classList.toggle('opened')">
+  document.body.innerHTML = `
+  <div id="envelope"
+       class="relative w-full max-w-[480px] aspect-[16/15] group perspective mx-auto">
 
-      <div class="absolute inset-x-0 mx-auto w-[92%] h-[100%] bg-[#fcfaf7] shadow-2xl border border-zinc-200 p-8 
-                  transition-all duration-700 ease-in-out z-0
-                  group-hover:-translate-y-52 group-hover:z-50">
-          
-          <div class="h-full border border-red-100 p-5 flex flex-col justify-between relative">
-              
-              <div class="flex justify-between items-start">
-                  <div class="space-y-2">
-                      <p class="text-sm italic text-zinc-600 max-w-[220px] leading-relaxed">
-                          She’s full of so many things.<br><br>
-                          That’s the perfect way to describe Elle. She’s smart, she’s funny, and one of my favorite things about her is how nerdy she can be. Those parts of her always stand out to me.<br><br>
-                          But more than that, it’s how she makes me feel when we talk. Beyond the butterflies, she effortlessly puts me at ease. Being with her feels natural and comforting, like I can really be myself. And that feeling… it’s hard to put into words.<br><br>
-                          Happy heart's day, Elle &lt;3
-                      </p>
-                  </div>
-                  <div class="w-14 h-20 border border-dotted border-zinc-300 bg-zinc-50 flex flex-col items-center justify-center p-1">
-                       <div class="text-[8px] uppercase tracking-widest text-zinc-400">Post</div>
-                       <div class="w-full h-full bg-center bg-cover"
-                            style="background-image:url('https://i.pinimg.com/736x/22/72/1b/22721b77401267d3f4a5606d8e717d7b.jpg')">
-                       </div>
-                  </div>
-              </div>
+    <div class="absolute inset-x-0 mx-auto w-[92%] h-[100%] bg-[#fcfaf7] shadow-2xl border border-zinc-200 p-8 
+                transition-all duration-700 ease-in-out z-0
+                group-hover:-translate-y-52 group-hover:z-50">
+
+      <div class="h-full border border-red-100 p-5 flex flex-col justify-between relative">
+
+        <div class="flex justify-between items-start">
+          <div class="space-y-2">
+            <p class="text-sm italic text-zinc-600 max-w-[220px] leading-relaxed">
+              She’s full of so many things.<br><br>
+              That’s the perfect way to describe Elle. She’s smart, she’s funny, and one of my favorite things about her is how nerdy she can be. Those parts of her always stand out to me.<br><br>
+              But more than that, it’s how she makes me feel when we talk. Beyond the butterflies, she effortlessly puts me at ease. Being with her feels natural and comforting, like I can really be myself. And that feeling… it’s hard to put into words.<br><br>
+              Happy heart's day, Elle &lt;3
+            </p>
           </div>
-      </div>
 
-      <div class="absolute inset-0 bg-white border border-zinc-200 shadow-xl z-100 overflow-hidden">
-          <div class="absolute inset-0 z-20"
-               style="background: linear-gradient(35deg, #ffffff 50%, #f9f9f9 50.1%);"></div>
-          
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 transition-transform duration-500
-                      group-hover:scale-110 group-hover:rotate-12">
-              <div class="w-14 h-14 bg-red-800 rounded-full shadow-lg border border-red-900 flex items-center justify-center">
-                  <span class="text-red-300 text-lg">❤</span>
-              </div>
+          <div class="w-14 h-20 border border-dotted border-zinc-300 bg-zinc-50 flex flex-col items-center justify-center p-1">
+            <div class="text-[8px] uppercase tracking-widest text-zinc-400">Post</div>
+            <div class="w-full h-full bg-center bg-cover"
+                 style="background-image:url('https://i.pinimg.com/736x/22/72/1b/22721b77401267d3f4a5606d8e717d7b.jpg')">
+            </div>
           </div>
-      </div>
+        </div>
 
-      <div class="absolute top-0 left-0 w-full h-1/2 bg-zinc-100 origin-top transition-transform duration-500 ease-in-out 
-                  group-hover:[transform:rotateX(180deg)] z-30 shadow-sm"
-           style="clip-path: polygon(0 0, 50% 100%, 100% 0);">
       </div>
-
     </div>
 
-    <div class="absolute bottom-2 left-1/2 -translate-x-1/2 text-zinc-600 text-[10px] uppercase tracking-[0.4em] animate-pulse text-center">
-      Click to Open
+    <div class="absolute inset-0 bg-white border border-zinc-200 shadow-xl z-100 overflow-hidden">
+      <div class="absolute inset-0 z-20"
+           style="background: linear-gradient(35deg, #ffffff 50%, #f9f9f9 50.1%);"></div>
+
+      <!-- HEART SEAL -->
+      <div onclick="toggleOpen(event)"
+           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40
+                  transition-transform duration-500 cursor-pointer
+                  group-hover:scale-110 group-hover:rotate-12">
+        <div class="w-14 h-14 bg-red-800 rounded-full shadow-lg border border-red-900 flex items-center justify-center">
+          <span class="text-red-300 text-lg">❤</span>
+        </div>
+      </div>
     </div>
-    `;
+
+    <div class="absolute top-0 left-0 w-full h-1/2 bg-zinc-100 origin-top transition-transform duration-500 ease-in-out 
+                group-hover:[transform:rotateX(180deg)] z-30 shadow-sm"
+         style="clip-path: polygon(0 0, 50% 100%, 100% 0);">
+    </div>
+
+  </div>
+
+  <div class="absolute bottom-2 left-1/2 -translate-x-1/2 text-zinc-600 text-[10px] uppercase tracking-[0.4em] animate-pulse text-center">
+    Click the Heart
+  </div>
+  `;
+}
+
+function toggleOpen(e) {
+  e.stopPropagation();
+  document.getElementById('envelope').classList.toggle('opened');
 }
 </script>
 
 </body>
 </html>
-
-
-
-
