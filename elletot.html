@@ -201,23 +201,14 @@ function showValentine() {
     
 function toggleOpen(e) {
   e.stopPropagation();
-  const envelope = document.getElementById('envelope');
-  envelope.classList.toggle('opened');
-
-  // Play song when heart is clicked
-  const song = document.getElementById('valentineSong');
-  if (envelope.classList.contains('opened')) {
-    song.play();
-  } else {
-    song.pause();
-    song.currentTime = 0; // reset if closed
-  }
+  document.getElementById('envelope').classList.toggle('opened');
 }
 
 </script>
 
 </body>
 </html>
+
 
 
 
