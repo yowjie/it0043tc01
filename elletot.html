@@ -199,14 +199,27 @@ function showValentine() {
 }
     
 function toggleOpen(e) {
-  e.stopPropagation();
-  document.getElementById('envelope').classList.toggle('opened');
-}
+    e.stopPropagation();
+    const envelope = document.getElementById('envelope');
+    envelope.classList.toggle('opened');
+
+    // Play song when heart is clicked
+    const song = document.getElementById('valentineSong');
+    if (envelope.classList.contains('opened')) {
+      song.play();
+    } else {
+      song.pause();
+      song.currentTime = 0; // reset if closed
+    }
+  }
 
 </script>
 
+<audio id="valentineSong" src="song.mp3" preload="auto"></audio>
+  
 </body>
 </html>
+
 
 
 
