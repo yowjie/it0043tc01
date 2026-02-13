@@ -20,7 +20,8 @@ body {
   align-items: center;
   justify-content: center;
   font-family: Consolas, Menlo, monospace;
-  transition: opacity 0.8s ease;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
 }
 
 body.card-mode {
@@ -178,10 +179,10 @@ function showValentine() {
     `;
 
     // Fade in effect
-    setTimeout(() => body.style.opacity = 1, 50);
-  }, 500);
-}
-
+    window.addEventListener("load", () => {
+  document.body.style.opacity = 1;
+});
+    
 function toggleOpen(e) {
   e.stopPropagation();
   document.getElementById('envelope').classList.toggle('opened');
@@ -190,4 +191,5 @@ function toggleOpen(e) {
 
 </body>
 </html>
+
 
