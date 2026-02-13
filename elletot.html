@@ -201,7 +201,8 @@ function showValentine() {
     
 function toggleOpen(e) {
   e.stopPropagation();
-  document.getElementById('envelope').classList.toggle('opened');
+  const envelope = document.getElementById('envelope');
+  envelope.classList.toggle('opened');
 
   // Play song when heart is clicked
   const song = document.getElementById('valentineSong');
@@ -212,10 +213,12 @@ function toggleOpen(e) {
     song.currentTime = 0; // reset if closed
   }
 }
+
 </script>
 
 </body>
 </html>
+
 
 
 
