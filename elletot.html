@@ -207,15 +207,27 @@ function toggleOpen(e) {
 
     // Play song when heart is clicked
     const song = document.getElementById('valentineSong');
+    song.volume = 0.5;
+  
     if (envelope.classList.contains('opened')) {
-      song.play();
+        song.play();
     } else {
-      song.pause();
-      song.currentTime = 0; // reset if closed
+        // Fade out over 1 second
+        let fadeInterval = setInterval(() => {
+            if (song.volume > 0.05) {
+                song.volume -= 0.05; // decrease volume gradually
+            } else {
+                clearInterval(fadeInterval);
+                song.pause();
+                song.currentTime = 0;
+                song.volume = 0.5; // reset for next time
+            }
+        }, 50); // run every 50ms
     }
-  }
+}
 
 </script>
   
 </body>
 </html>
+
