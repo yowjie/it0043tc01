@@ -205,29 +205,47 @@ function toggleOpen(e) {
     const envelope = document.getElementById('envelope');
     envelope.classList.toggle('opened');
 
-    // Play song when heart is clicked
     const song = document.getElementById('valentineSong');
-    song.volume = 0.5;
-  
+    const targetVolume = 0.5; // desired max volume
+    const fadeStep = 0.05;    // smaller step = smoother fade
+    const fadeIntervalMs = 50; // interval between steps
+
+    // Clear any previous intervals to prevent conflicts
+    if (song.fadeInterval) clearInterval(song.fadeInterval);
+
     if (envelope.classList.contains('opened')) {
+        song.volume = 0;   // start from 0
         song.play();
-    } else {
-        // Fade out over 1 second
-        let fadeInterval = setInterval(() => {
-            if (song.volume > 0.05) {
-                song.volume -= 0.05; // decrease volume gradually
+
+        // Fade in
+        song.fadeInterval = setInterval(() => {
+            if (song.volume < targetVolume - fadeStep) {
+                song.volume += fadeStep;
             } else {
-                clearInterval(fadeInterval);
-                song.pause();
-                song.currentTime = 0;
-                song.volume = 0.5; // reset for next time
+                song.volume = targetVolume;
+                clearInterval(song.fadeInterval);
             }
-        }, 50); // run every 50ms
+        }, fadeIntervalMs);
+
+    } else {
+        // Fade out
+        song.fadeInterval = setInterval(() => {
+            if (song.volume > fadeStep) {
+                song.volume -= fadeStep;
+            } else {
+                song.volume = 0;
+                clearInterval(song.fadeInterval);
+                song.pause();
+                song.currentTime = 0; // reset for next time
+            }
+        }, fadeIntervalMs);
     }
 }
+
 
 </script>
   
 </body>
 </html>
+
 
