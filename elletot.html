@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <title>404 Not Found</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<audio id="loveSong" src="equinox.mp3" preload="auto"></audio>
+  
 <script src="https://cdn.tailwindcss.com"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
@@ -201,11 +202,21 @@ function showValentine() {
 function toggleOpen(e) {
   e.stopPropagation();
   document.getElementById('envelope').classList.toggle('opened');
+
+  // Play song when heart is clicked
+  const song = document.getElementById('valentineSong');
+  if (envelope.classList.contains('opened')) {
+    song.play();
+  } else {
+    song.pause();
+    song.currentTime = 0; // reset if closed
+  }
 }
 </script>
 
 </body>
 </html>
+
 
 
 
