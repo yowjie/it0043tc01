@@ -36,10 +36,13 @@ body.card-mode {
 
 .letter {
   transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  z-index: 40;
 }
 /* simulate open state */
 .opened .letter {
   transform: translateY(-13rem) scale(1.02);
+  z-index: 60;
 }
 
 .heart {
@@ -208,3 +211,4 @@ function toggleOpen(e) {
 
 </body>
 </html>
+
